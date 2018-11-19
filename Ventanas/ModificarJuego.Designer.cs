@@ -25,14 +25,12 @@
         private void InitializeComponent() {
             this.btnModificar = new System.Windows.Forms.Button();
             this.picImagen = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtPublicador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.nudRating = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboClasificacion = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDesarrollador = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,15 +41,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.nudID = new System.Windows.Forms.NumericUpDown();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.lblImagen = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtClasificacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRating)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudID)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -59,7 +55,7 @@
             this.btnModificar.Location = new System.Drawing.Point(527, 341);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 43;
+            this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -73,22 +69,12 @@
             this.picImagen.TabIndex = 42;
             this.picImagen.TabStop = false;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(157, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "Para ID:";
-            this.label10.Visible = false;
-            // 
             // txtPublicador
             // 
             this.txtPublicador.Location = new System.Drawing.Point(140, 192);
             this.txtPublicador.Name = "txtPublicador";
             this.txtPublicador.Size = new System.Drawing.Size(200, 20);
-            this.txtPublicador.TabIndex = 38;
+            this.txtPublicador.TabIndex = 5;
             // 
             // label9
             // 
@@ -101,16 +87,21 @@
             // 
             // nudRating
             // 
-            this.nudRating.DecimalPlaces = 1;
+            this.nudRating.DecimalPlaces = 2;
+            this.nudRating.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.nudRating.Location = new System.Drawing.Point(140, 266);
             this.nudRating.Maximum = new decimal(new int[] {
             999,
             0,
             0,
-            0});
+            131072});
             this.nudRating.Name = "nudRating";
             this.nudRating.Size = new System.Drawing.Size(200, 20);
-            this.nudRating.TabIndex = 36;
+            this.nudRating.TabIndex = 7;
             // 
             // label8
             // 
@@ -124,15 +115,20 @@
             // nudPrecio
             // 
             this.nudPrecio.DecimalPlaces = 2;
+            this.nudPrecio.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.nudPrecio.Location = new System.Drawing.Point(140, 305);
             this.nudPrecio.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
+            -727379969,
+            232,
             0,
-            0});
+            131072});
             this.nudPrecio.Name = "nudPrecio";
             this.nudPrecio.Size = new System.Drawing.Size(200, 20);
-            this.nudPrecio.TabIndex = 34;
+            this.nudPrecio.TabIndex = 8;
             // 
             // label7
             // 
@@ -142,15 +138,6 @@
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 33;
             this.label7.Text = "Precio:";
-            // 
-            // cboClasificacion
-            // 
-            this.cboClasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboClasificacion.FormattingEnabled = true;
-            this.cboClasificacion.Location = new System.Drawing.Point(140, 228);
-            this.cboClasificacion.Name = "cboClasificacion";
-            this.cboClasificacion.Size = new System.Drawing.Size(200, 21);
-            this.cboClasificacion.TabIndex = 32;
             // 
             // label6
             // 
@@ -166,7 +153,7 @@
             this.txtDesarrollador.Location = new System.Drawing.Point(140, 156);
             this.txtDesarrollador.Name = "txtDesarrollador";
             this.txtDesarrollador.Size = new System.Drawing.Size(200, 20);
-            this.txtDesarrollador.TabIndex = 30;
+            this.txtDesarrollador.TabIndex = 4;
             // 
             // label5
             // 
@@ -182,7 +169,7 @@
             this.dtpFecha.Location = new System.Drawing.Point(140, 122);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 20);
-            this.dtpFecha.TabIndex = 28;
+            this.dtpFecha.TabIndex = 3;
             // 
             // label4
             // 
@@ -198,7 +185,7 @@
             this.txtGenero.Location = new System.Drawing.Point(140, 90);
             this.txtGenero.Name = "txtGenero";
             this.txtGenero.Size = new System.Drawing.Size(200, 20);
-            this.txtGenero.TabIndex = 26;
+            this.txtGenero.TabIndex = 2;
             // 
             // label3
             // 
@@ -214,7 +201,7 @@
             this.txtNombre.Location = new System.Drawing.Point(140, 55);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
-            this.txtNombre.TabIndex = 24;
+            this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
@@ -235,30 +222,12 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Modificar juego";
             // 
-            // lblEstado
-            // 
-            this.lblEstado.Location = new System.Drawing.Point(266, 15);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(74, 23);
-            this.lblEstado.TabIndex = 44;
-            this.lblEstado.Text = "-";
-            this.lblEstado.Visible = false;
-            // 
-            // nudID
-            // 
-            this.nudID.Location = new System.Drawing.Point(210, 15);
-            this.nudID.Name = "nudID";
-            this.nudID.Size = new System.Drawing.Size(50, 20);
-            this.nudID.TabIndex = 45;
-            this.nudID.Visible = false;
-            this.nudID.ValueChanged += new System.EventHandler(this.nudID_ValueChanged);
-            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(414, 53);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 48;
+            this.btnSeleccionar.TabIndex = 9;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
@@ -280,26 +249,30 @@
             this.label11.TabIndex = 46;
             this.label11.Text = "Imagen:";
             // 
+            // txtClasificacion
+            // 
+            this.txtClasificacion.Location = new System.Drawing.Point(140, 228);
+            this.txtClasificacion.Name = "txtClasificacion";
+            this.txtClasificacion.Size = new System.Drawing.Size(200, 20);
+            this.txtClasificacion.TabIndex = 6;
+            // 
             // ModificarJuego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 372);
+            this.Controls.Add(this.txtClasificacion);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.nudID);
-            this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.picImagen);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtPublicador);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.nudRating);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.nudPrecio);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cboClasificacion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDesarrollador);
             this.Controls.Add(this.label5);
@@ -317,7 +290,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRating)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,14 +299,12 @@
 
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox picImagen;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPublicador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown nudRating;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown nudPrecio;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboClasificacion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDesarrollador;
         private System.Windows.Forms.Label label5;
@@ -345,10 +315,9 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.NumericUpDown nudID;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.Label lblImagen;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtClasificacion;
     }
 }

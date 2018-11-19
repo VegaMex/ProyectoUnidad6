@@ -22,6 +22,8 @@ namespace Ventanas {
 
         int idbueno;
 
+        DATOS.Varios val = new DATOS.Varios();
+
         private void nudID_ValueChanged(object sender, EventArgs e) {
             //checar();
         }
@@ -80,7 +82,7 @@ namespace Ventanas {
             dtpFecha.Value = jm.fechalanzamiento;
             txtDesarrollador.Text = jm.desarrollador;
             txtPublicador.Text = jm.publicador;
-            cboClasificacion.SelectedItem = jm.clasificacion;
+            txtClasificacion.Text = jm.clasificacion;
             nudRating.Value = jm.rating;
             nudPrecio.Value = jm.precio;
 
@@ -91,36 +93,48 @@ namespace Ventanas {
                 picImagen.Image = null;
             }
 
-            lblEstado.Text = "-";
             btnModificar.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e) {
-            JuegosModelo i = new JuegosModelo();
-            JuegosDAOS dao = new JuegosDAOS();
 
-            img = picImagen.Image;
+            if (val.validar(txtNombre.Text, txtGenero.Text, txtDesarrollador.Text,
+                txtPublicador.Text, txtClasificacion.Text, (decimal)nudRating.Value, (decimal)nudPrecio.Value))
+            {
+                JuegosModelo i = new JuegosModelo();
+                JuegosDAOS dao = new JuegosDAOS();
 
-            i.idjuego = (int)nudID.Value;
-            i.nombre = txtNombre.Text;
-            i.genero = txtGenero.Text;
-            i.fechalanzamiento = dtpFecha.Value;
-            i.desarrollador = txtDesarrollador.Text;
-            i.publicador = txtPublicador.Text;
-            i.clasificacion = cboClasificacion.SelectedText;
-            i.rating = nudRating.Value;
-            i.precio = nudPrecio.Value;
+                img = picImagen.Image;
 
-            if (img != null) {
-                i.imagen = ImageToByteArray(img);
-            } else {
-                i.imagen = null;
+                i.idjuego = idbueno;
+                i.nombre = txtNombre.Text;
+                i.genero = txtGenero.Text;
+                i.fechalanzamiento = dtpFecha.Value;
+                i.desarrollador = txtDesarrollador.Text;
+                i.publicador = txtPublicador.Text;
+                i.clasificacion = txtClasificacion.Text;
+                i.rating = nudRating.Value;
+                i.precio = nudPrecio.Value;
+
+                if (img != null)
+                {
+                    i.imagen = ImageToByteArray(img);
+                }
+                else
+                {
+                    i.imagen = null;
+                }
+
+
+                dao.update(i);
+                MessageBox.Show("Modificado.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Algo está mal con los datos.");
             }
 
-
-            dao.update(i);
-            MessageBox.Show("Modificado.");
-            this.Close();
         }
 
         public static Image ByteArrayToImage(byte[] byteArrayIn) {
@@ -148,14 +162,7 @@ namespace Ventanas {
         }
 
         private void ModificarJuego_Load(object sender, EventArgs e) {
-            cboClasificacion.Items.Add("EARLY CHILDHOOD");
-            cboClasificacion.Items.Add("EVERYONE");
-            cboClasificacion.Items.Add("EVERYONE 10+");
-            cboClasificacion.Items.Add("TEEN");
-            cboClasificacion.Items.Add("MATURE 17+");
-            cboClasificacion.Items.Add("ADULTS ONLY 18+");
-            cboClasificacion.Items.Add("RATING PENDING");
-            cboClasificacion.DisplayMember = "EARLY CHILDHOOD";
+
         }
     }
 }

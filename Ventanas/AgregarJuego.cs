@@ -21,29 +21,42 @@ namespace Ventanas {
 
         Image img = null;
 
+        DATOS.Varios val = new DATOS.Varios();
+
         private void btnGuardar_Click(object sender, EventArgs e) {
 
-            JuegosModelo j = new JuegosModelo();
-            JuegosDAOS dao = new JuegosDAOS();
+            if (val.validar(txtNombre.Text, txtGenero.Text, txtDesarrollador.Text,
+                txtPublicador.Text, txtClasificacion.Text, (decimal)nudRating.Value,(decimal)nudPrecio.Value ))
+            {
+                JuegosModelo j = new JuegosModelo();
+                JuegosDAOS dao = new JuegosDAOS();
 
-            j.nombre = txtNombre.Text;
-            j.genero = txtGenero.Text;
-            j.fechalanzamiento = dtpFecha.Value;
-            j.desarrollador = txtDesarrollador.Text;
-            j.publicador = txtPublicador.Text;
-            j.clasificacion = cboClasificacion.Text;
-            j.rating = (decimal)nudRating.Value;
-            j.precio = (decimal)nudPrecio.Value;
+                j.nombre = txtNombre.Text;
+                j.genero = txtGenero.Text;
+                j.fechalanzamiento = dtpFecha.Value;
+                j.desarrollador = txtDesarrollador.Text;
+                j.publicador = txtPublicador.Text;
+                j.clasificacion = txtClasificacion.Text;
+                j.rating = (decimal)nudRating.Value;
+                j.precio = (decimal)nudPrecio.Value;
 
-            if (img != null) {
-                j.imagen = ImageToByteArray(img);
-            } else {
-                j.imagen = null;
+                if (img != null)
+                {
+                    j.imagen = ImageToByteArray(img);
+                }
+                else
+                {
+                    j.imagen = null;
+                }
+
+                dao.insert(j);
+                MessageBox.Show("Agregado.");
+                this.Close();
             }
-
-            dao.insert(j);
-            MessageBox.Show("Agregado.");
-            this.Close();
+            else
+            {
+                MessageBox.Show("Algo está mal con los datos.");
+            }
 
         }
 
@@ -67,14 +80,7 @@ namespace Ventanas {
         }
 
         private void AgregarJuego_Load(object sender, EventArgs e) {
-            cboClasificacion.Items.Add("EARLY CHILDHOOD");
-            cboClasificacion.Items.Add("EVERYONE");
-            cboClasificacion.Items.Add("EVERYONE 10+");
-            cboClasificacion.Items.Add("TEEN");
-            cboClasificacion.Items.Add("MATURE 17+");
-            cboClasificacion.Items.Add("ADULTS ONLY 18+");
-            cboClasificacion.Items.Add("RATING PENDING");
-            cboClasificacion.DisplayMember = "EARLY CHILDHOOD";
+
         }
     }
 }

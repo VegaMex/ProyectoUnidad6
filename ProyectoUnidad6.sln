@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATOS", "DATOS\DATOS.csproj", "{B086489B-B194-451A-B93A-99C118C719AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventanas", "Ventanas\Ventanas.csproj", "{0CEF7A5B-D535-413E-8A1D-6345C04E33F6}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B086489B-B194-451A-B93A-99C118C719AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B086489B-B194-451A-B93A-99C118C719AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B086489B-B194-451A-B93A-99C118C719AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B086489B-B194-451A-B93A-99C118C719AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEF7A5B-D535-413E-8A1D-6345C04E33F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEF7A5B-D535-413E-8A1D-6345C04E33F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEF7A5B-D535-413E-8A1D-6345C04E33F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEF7A5B-D535-413E-8A1D-6345C04E33F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

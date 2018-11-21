@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace DATOS.util {
     public class Conexion {
+
+        /// <summary>
+        /// Conexión a la base de Datos.
+        /// </summary>
+        /// <returns>Cadena de conexión a la base de datos.</returns>
         public string GetConnectionString() {
             String servidor = "68.183.49.7";
             String puerto = "3306";
@@ -17,6 +22,11 @@ namespace DATOS.util {
             String database = "terpomo";
             return String.Format("Server={0};Database={4};Uid={2};Pwd={3};", servidor, puerto, usuario, password, database);
         }
+
+        /// <summary>
+        /// Se encarga de ejecutar un comando SQL.
+        /// </summary>
+        /// <param name="sqlCom">Comando SQL para ejecutar Insert, Delete y Update.</param>
         public void EjecutaSQLComando(MySqlCommand sqlCom) {
             MySqlConnection sqlConn = new MySqlConnection();
             try {
@@ -28,6 +38,12 @@ namespace DATOS.util {
                 sqlConn.Close();
             }
         }
+
+        /// <summary>
+        /// Ejecuta un comando SQL y retorna un parámetro.
+        /// </summary>
+        /// <param name="sComandoSql">Comando SQL.</param>
+        /// <returns></returns>
         public string EjecutaSQLScalar(string sComandoSql) {
             string regreso = "";
             MySqlConnection sqlConn = new MySqlConnection();
@@ -43,6 +59,12 @@ namespace DATOS.util {
             }
             return regreso;
         }
+        /// <summary>
+        /// Esta método sirve para llenar GridsView y combos.
+        /// Regresa un DataSet.
+        /// </summary>
+        /// <param name="mysql">Comando SQL</param>
+        /// <returns>DataSet útil para llenar controles de datos.</returns>
         public DataSet LLenaComboGrid(string mysql) {
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter();
